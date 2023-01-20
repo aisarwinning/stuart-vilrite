@@ -1,0 +1,4 @@
+run = "bin/luvit main.lua"
+
+[nix]
+channel = "stable-22_11"
