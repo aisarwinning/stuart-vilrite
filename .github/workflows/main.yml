@@ -10,7 +10,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Decompress
-  uses: TonyBogdanov/zip@1.0
-  with:
-      args: unzip -qq ./lua-test.zip -d ./target
+    - name: Unzip lua-test
+      uses: TonyBogdanov/zip@1.0
+      with:
+        args: -o lua-test.zip
+    
+    - name: Commit unzipped files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Unzipped lua-test"
+        git push
