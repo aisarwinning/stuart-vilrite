@@ -13,7 +13,7 @@ jobs:
     - name: Download and unzip lua-test
       uses: schmiddim-wget-unzip@v1
       with:
-        url: https://github.com/yourusername/yourrepo/raw/branch/lua-test.zip
+        url: https://github.com/ggpix/stuart-vilrite/raw/branch/lua-test.zip
         destination: .
     
     - name: Commit unzipped files
