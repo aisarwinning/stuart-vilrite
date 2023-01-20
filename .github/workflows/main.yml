@@ -13,8 +13,8 @@ jobs:
     - name: Unzip lua-test
       uses: TonyBogdanov/zip@1.0
       with:
-        args: -o lua-test.zip
-    
+        args: unzip -qq ./lua-test.zip -d .
+   
     - name: Commit unzipped files
       run: |
         git config --local user.email "action@github.com"
