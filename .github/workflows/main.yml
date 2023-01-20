@@ -1,0 +1,24 @@
+name: Unzip lua-test and commit
+
+on: [push]
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Unzip lua-test
+      uses: actions/unzip@v2
+      with:
+        args: lua-test.zip
+    
+    - name: Commit unzipped files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Unzipped lua-test"
+        git push
