@@ -10,10 +10,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Unzip lua-test
-      uses: peaceiris/actions-unzip@v1
+    - name: Download and unzip lua-test
+      uses: schmiddim-wget-unzip@v1
       with:
-        args: lua-test.zip
+        url: https://github.com/yourusername/yourrepo/raw/branch/lua-test.zip
+        destination: .
     
     - name: Commit unzipped files
       run: |
