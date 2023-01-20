@@ -1,24 +1,19 @@
-name: Unzip lua-test and commit
+name: Octo Organization CI
 
-on: [push]
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
-  unzip:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-    - name: Unzip lua-test
-      uses: TonyBogdanov/zip@1.0
-      with:
-        args: unzip -qq ./lua-test.zip -d .
-   
-    - name: Commit unzipped files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Unzipped lua-test"
-        git push
+      - name: Decompress
+  uses: TonyBogdanov/zip@1.0
+  with:
+      args: unzip -qq ./lua-test.zip -d .
