@@ -10,16 +10,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Download and unzip lua-test
-      uses: schmiddim-wget-unzip@v1
-      with:
-        url: https://github.com/ggpix/stuart-vilrite/raw/branch/lua-test.zip
-        destination: .
-    
-    - name: Commit unzipped files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Unzipped lua-test"
-        git push
+    - name: Decompress
+  uses: TonyBogdanov/zip@1.0
+  with:
+      args: unzip -qq ./lua-test.zip -d ./target
