@@ -1,54 +1,88 @@
+require("discordia-interactions")
+require("discordia-components")
+require("discordia-slash")
+
 local discordia = require('discordia')
 local http = require("http")
+local fs = require("fs")
+
+require('./commands/ping')
+
 local client = discordia.Client({cacheAllMembers = false})
 
+
+client:useApplicationCommands()
+local intrType = discordia.enums.interactionType
+
+local util = require('discordia-slash').util
+
+local tools = util.tools()
 math.randomseed(os.time())
 
-http.createServer(function(req, res)
-	local body = "Hello World!\n"
-	res:setHeader("Content-Type", "text/plain")
-	res:setHeader("Content-Length", #body)
-	res:finish(body)
+local commands = {}
+
+for _, file in pairs(fs.readdirSync("./commands")) do
+  local fileTable = require(string.gsub("./commands/"..file, ".lua", ""))
+
+  commands[_] = {
+    name = fileTable.name;
+    description = fileTable.description;
+    permissions = fileTable.permissions or 0;
+    callback = fileTable.callback;
+    options = fileTable.options;
+  }
+end
+
+local server = http.createServer(function(req, res)
+    local body = "hey bot is up\n"
+    res:setHeader("Content-Type", "text/plain")
+    res:setHeader("Content-Length", #body)
+    
+    res:finish(body)
 end):listen(8080, "0.0.0.0")
 
 client:on('ready', function()
 	print('Logged in as '.. client.user.username)
+  for guildID in pairs(client.guilds) do
+for _, command in pairs(commands) do         print(client:createGuildApplicationCommand(guildID,
+        {
+        name = command.name,
+        description = command.description,
+        options = command.options,
+
+        type = discordia.enums.appCommandType.chatInput,
+        }))
+         end 
+      end
 end)
 
-local stop = 0
-      
-local commandsTable = {
-   ["stuart"] = {callback = function(message)     stop = stop + 1
-		if stop <= 2 then
-      message.channel:send("hi")
-      elseif stop == 3 then
-      message.channel:send("hello")
-
-      stop = math.random(1, 5)
-      elseif stop == 4 then
-        message.channel:send("hop off kid")
-      elseif stop == 5 then
-        message.channel:send("oh mg vox brl kid sgol")
-      elseif stop == 6 then
-        message.channel:send("im going to ban you.")
-      stop = 0
-       end 
-    end};
-  ["you're on fire"] = {callback = function(message) message.channel:send("https://media.discordapp.net/attachments/764362465130709002/1061028155168673842/image.png")
-    end;};
-  ["ain't that right stuart"] = {callback = function(message)
-      message.channel:send("yessir");
-    end;}
+--[[local ping_button = discordia.Button {
+  id = "ping",
+  label = "Ping!",
+  style = "danger",
 }
 
-client:on('messageCreate', function(message)
-    if message.author.bot then return end
-    for _, command in pairs(commandsTable) do
-      
-	if string.lower(message.content) == _ then
-        command.callback(message)  
-	     end
+interaction:update {
+      embed = {
+        title = "Wow! You have actually used the component!",
+        color = 0x00ff00,
+      }
+}
+
+interaction:reply("Hello There! This is ephemeral reply", true)
+
+]]
+
+
+
+client:on("slashCommand", function(ia, cmd, args)
+    for _, command in pairs(commands) do
+    if cmd.name == command.name then
+       command.callback(ia, cmd, args)
+    end
     end
 end)
+
+--> Command Handler:
 
 client:run('Bot '.. os.getenv("token"))

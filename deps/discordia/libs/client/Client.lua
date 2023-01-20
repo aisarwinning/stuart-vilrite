@@ -153,7 +153,7 @@ local function run(self, token)
 	local users = self._users
 	local options = self._options
 
-	if options.cacheAllMembers and bit.band(self._intents, gatewayIntent.guildMembers) == 0 then
+	if false and bit.band(self._intents, gatewayIntent.guildMembers) == 0 then
 		self:warning('Cannot cache all members while guildMembers intent is disabled')
 		options.cacheAllMembers = false
 	end
