@@ -50,7 +50,7 @@ then
             end
           end
             
-            fileInfo.callback(message, split_sar(message.content, " "), commandString)
+            pcall(fileInfo.callback(client, message, split_sar(message.content, " "), commandString))
              end           
           end
         end

@@ -6,7 +6,6 @@ require("discordia-slash")
 require('../deps/discordia-replies/discordia-replies')()
 
 local discordia = require('discordia')
-local client = discordia.Client()
 
 return {
   usePrefix = true;
@@ -14,7 +13,7 @@ return {
   command = {"hostpermadeath", "hostpd", " host"};
   permissions = {"sendMessages"};
 
-  callback = function(message, args, commandString)
+  callback = function(client, message, args, commandString)
 
      if not args[2] or not args[3] or not args[4] then
        message:newReply(commandString.." **<time> <region> <description>**\n\n- **time** (ex. 40)\n- **region** (ex. NA)\n- **description** (ex. cothaigh appears in this mysterious snow storm.)")
@@ -22,7 +21,7 @@ return {
         return
     end
       
-      local description = args[3]
+      local description = args[4]
       
       for _, arg in ipairs(args) do
          if _ > 4 then
@@ -32,14 +31,15 @@ return {
 
      message:newReply("You're perma death event has been setup for XX:"..args[2])
 
-    
-   client:getGuild("1052305529021665411" ):getChannel("1058124374735073410"):send({
+  
+
+  client:getGuild("1052305529021665411" ):getChannel("1058124374735073410"):send({
 			embed = {
 				title = "Perma Death Event",
 				description = description,
         image = { url = "https://media.discordapp.net/attachments/1061686180946653235/1063183527321030826/deadlands_thumbnail.png"};       
 				author = {
-					name = " -  "..message.author.username,
+					name = " -  "..message.author.name,
 	   		},
 				fields = { -- array of fields
 					{
