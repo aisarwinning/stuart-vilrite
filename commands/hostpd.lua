@@ -31,6 +31,7 @@ return {
       end
 
      message:newReply("You're perma death event has been setup for XX:"..args[2])
+
     
    client:getGuild("1052305529021665411" ):getChannel("1058124374735073410"):send({
 			embed = {
@@ -38,7 +39,7 @@ return {
 				description = description,
         image = { url = "https://media.discordapp.net/attachments/1061686180946653235/1063183527321030826/deadlands_thumbnail.png"};       
 				author = {
-					name = " -  "..ia.member.user.username,
+					name = " -  "..message.author.username,
 	   		},
 				fields = { -- array of fields
 					{
