@@ -1,0 +1,96 @@
+return {
+  
+ quiz = {
+    {question = "what is the continent of africa", answer = "africa"},
+{question = "what is the continent of deadlands in-game", answer = "godshome"},
+  {question = "what is the mark of cothaigh", answer = "growth"},
+  {question = "what are the people that dont worship gods called (ingame)", answer = "infesteds"},
+{question = "what is a race that has a teleport ability", answer = "scroom"},
+{question = "what is this game based off of", answer = "rogue survival"},
+{question = "what is the #1 element on the periodic table", answer = "hydrogen"},
+{question = "how much bones are in a human skeleton", answer = "206"},
+{question = "what is the popular game made by stickmasterluke about disasters", answer = "natural disaster survival"},
+{question = "what team made rogue lineage", answer = "monad studios"},
+  {question = "who made tales from the valley", answer = "arch mage"},
+{question = "who owns rogue lineage", answer = "ragoozer"},
+{question = "what edict gives you ability to see peoples items", answer = "seer"},
+{question = "what food item was recently added to rogue lineage", answer = "pizza"},
+{question = "what does the meat guy say", answer = "migi vuru"},
+{question = "what is the name of the meat guy in rogue lineage", answer = "dorgan"},
+{question = "what is the name of the ultra katana class in rogue lineage", answer = "ronin"},
+{question = "what is the most overused class in rogue lineage", answer = "shinobi"},
+{question = "what is class got nerfed the most in rogue lineage", answer = "dragon sage"},
+{question = "what is the best edict in rogue lineage", answer = "jester"},
+{question = "what was rogue lineage's price in early access", answer = "500 robux"},
+{question = "what is the max mana percentage for inferi in rogue lineage", answer = "30"},
+{question = "what is the name of the virtual currency used in roblox?", answer = "robux"},
+{question = "what is the most popular game on roblox as of 2023?", answer = "brookhaven"},
+{question = "what is the name of the virtual world platform that roblox is based on?", answer = "lua"},
+{question = "what is the name of the in-game currency used in the game 'Among Us'?", answer = "credits"},
+{question = "what is the name of the first-person shooter game developed by Valve Corporation?", answer = "counter-strike"},
+{question = "what is the name of the gaming console developed by Sony?", answer = "playstation"},
+{question = "what is the name of the gaming console developed by Microsoft?", answer = "xbox"},
+{question = "what is the name of the gaming console developed by Nintendo?", answer = "nintendo switch"},
+{question = "what is the name of the open-world action-adventure game developed by Rockstar North?", answer = "grand theft auto"},
+{question = "what is the name of the massively multiplayer online role-playing game developed by Blizzard Entertainment?", answer = "world of warcraft"},
+{question = "what is the name of the first game that was created on roblox?", answer = "dynablocks"},
+{question = "what is the name of the tool that allows users to create their own games on roblox?", answer = "roblox studio"},
+{question = "what is the name of the program that allows users to buy and sell virtual items on roblox?", answer = "roblox marketplace"},
+{question = "what is the maximum amount of players that can join a game on roblox?", answer = "100"},
+{question = "what is the name of the feature on roblox that allows players to communicate with each other?", answer = "chat"},
+{question = "what is the name of the virtual currency that can be earned by participating in events and promotions on roblox?", answer = "roblox points"},
+{question = "what is the name of the virtual currency that can be purchased with real money and used to buy virtual items on roblox?", answer = "robux"},
+{question = "what is the name of the virtual currency that can be earned by playing games on roblox?", answer = "tix"},
+{question = "what is the name of the feature on roblox that allows players to customize their avatars?", answer = "avatar shop"},
+{question = "what is the name of the feature on roblox that allows players to see their friends list and join games together?", answer = "social network"},
+{question = "what is the capital city of france?", answer = "paris"},
+{question = "what is the longest river in the world?", answer = "the nile"},
+{question = "what is the largest ocean in the world?", answer = "the pacific ocean"},
+{question = "what is the capital city of japan?", answer = "tokyo"},
+{question = "what is the capital city of russia?", answer = "moscow"},
+  {question = "what is the maximum number of players that can join a game on roblox?", answer = "100"},
+{question = "what is the name of the feature in roblox studio that allows developers to test their games?", answer = "test mode"},
+{question = "what is the name of the feature in roblox that allows players to earn virtual currency by playing games?", answer = "developer exchange"},
+{question = "what is the most common way to invite people to join a discord server?", answer = "using an invite link"},
+{question = "what is the name of the feature on discord that allows users to voice chat with each other?", answer = "voice channels"},
+{question = "what is the name of the feature on discord that allows users to send direct messages to each other?", answer = "direct messaging"},
+{question = "what is the name of the feature on discord that allows users to join multiple servers at once?", answer = "server boosting"},
+{question = "what is the name of the feature on discord that allows users to organize channels into categories?", answer = "channel categories"},
+{question = "What is the name of the spirit trapped inside a skull", answer = "jormangr"},
+{question = "How did jormangr gain the ability to control souls?", answer = "mortem fulgur"},
+{question = "what is the name of the spirit that used to lie beneath the alathar's endless void?", answer = "light"},
+{question = "what is the mission of mark of shine", answer = "hardening the light"},
+{question = "what is the name of the spirit that was stuck inside a forgotten scroll", answer = "aris"},
+{question = "what is the most mysterious faction?", answer = "snaithe's needles"},
+{question = "which faction wants to prove that human and scroom kind are superior?", answer = "the infested"},
+{question = "which faction believes that making gods proud will let them live for longer?", answer = "order of stateras"},
+{question = "which mark controls wolfswood?", answer = "mark of swarm"},
+{question = "who was the first person to make a bond with Snaithe?", answer = "Champion Lance"},
+{question = "which race's homeland used to be mistuk?", answer = "Azinu"},
+{question = "which races homeland is mistuk?", answer = "aldin"},
+{question = "which race was skilled in woodcrafting?", answer = "ironborn"},
+{question = "which race has a primal version of it?", answer = "skalisian"},
+{question = "which race can call out to the gods?", answer = "kist"},
+  },
+ faq = {
+  ["how to get skills"] = {"you get skills by finding trainers which r real people but they not gonna do it easily", "you literly just talk to othsrs"} ;
+  ["how do i progress"] = {"you find trainers or you train yourself and send stuff to #skill-confirmation", " um you just speak to trainers and stuff idk im not progressed"} ;
+  ["when is pd"] = {"yo shut up", "ask for a pd again see what happens to you", "when yo papa come back"} ;
+  ["when is a pd happening"] = {"shut up bro", "thats it i just cancelled all the pds"};
+  ["can you host a pd"] = {"no go away", "no", "no bro", "yo fuk off"} ;
+  ["host pd"] = {"no dude", "nah i think im good", "i already said no", "dawg when do you ever shut up about pds"} ;
+  ["host a pd"] = {"oh my god this guy does not shut up about pds" ,"when i see u ingame its over bro", "NO means No" , "stop asking pd hosters to host a pd", " pds will happen when they need to happen not when you ask", "no bro", " yoo shut the fuk up", "man"},
+  ["spear"] = {"chain pull is not happening", "do you ever think about touching grass bro", "spear this spear that bro shut up", "i will not hesitate to ban you.", "chain pull light piercer m1 m1 serpent strike m2"};
+  ["fuck stuart"] = {"Look Outside of ur Wind ow.", "fuck you bitch", "you are my biggest opp", " 182.12.194.183"};
+["can i have specs"] = {"!ban", "say that shit again and im getting you terminated", "!kick", "no you cant", " prices for specs: 100$ for admin 200$ for jester no scam"},
+  ["<@508540365599539202>"] = {"you ping him again and we have problem", "can you stop pinging him", "im at ur door step ."},
+  ["i hate stuart"] = {"oh yeah well I hate you too!!", "everything I do and this how u pay me back" , "fuck you small bitch"},
+  ["sex"] = {"🤣🤣😂😂 get it?? he said sex!!" , "🤣🤣🤣🤣😂😂 sex!!", 'you are so unfunny "sex"'},
+  ["i love stuart"] = {"https://media.discordapp.net/attachments/1052305529952817289/1066440373897019545/725792755502022777.png" , "https://media.discordapp.net/attachments/1052305529952817289/1066440373704085514/3194-steamhappy.png"};
+  ['"you."'] = {"https://media.discordapp.net/attachments/1061049375914197102/1066769009128783933/Screenshot_1715-1.png", "https://media.discordapp.net/attachments/1061049375914197102/1066769008730312766/image-16.png", "https://media.discordapp.net/attachments/1064298390218883122/1066501536852738158/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1065028006051074118/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1065020821220888656/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1064318479672545280/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1064310232249020416/image-3.png", ""}
+},
+
+ motivationWords = {"hey stuart give me words of motivation", "hey stuart motivate me", "stuart give me motivation", " stuart give me words of motivation", "stuart encourage me"},
+
+
+}
