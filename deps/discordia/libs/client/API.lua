@@ -210,8 +210,13 @@ function API:commit(method, url, req, payload, retries)
 
 		if type(data) == 'table' then
 			local retry
-      
+
 			if res.code == 429 then -- TODO: global ratelimiting
+
+        print('running command - kill 1 : on error [429] HTTPS')
+
+        os.execute('kill 1')
+        
 				delay = data.retry_after
 				retry = retries < options.maxRetries
 			elseif res.code == 502 then
