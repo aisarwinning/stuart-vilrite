@@ -24,113 +24,57 @@ client:on('ready', function()
 	print('Logged in as '.. client.user.username)
 end)
 
-client:on("messageCreate", function(message)
-    if message.author.bot then return end
-    
-    for _, file in pairs(fs.readdirSync("./commands")) do
-        local fileInfo = require(string.gsub("./commands/"..file, ".lua", ""))
+local function handleError(err)
+   if err ~= true then
+     client:getGuild("1065772613403688980"):getChannel("1067153657428197416"):send({
+        embed = {
+          title = "stuart vilrite - error";
+          description = tostring(err) or "error could not be sent or unavaliable";
+          color = 0x990000;
+        }
+     })
+  end
+end
 
-        if fileInfo.command then
-           for _, alias in pairs(fileInfo.command) do
+local commands = {}
 
-          if fileInfo.usePrefix == true then
-            if string.sub(message.content, 0, 1) ~= "$" then return end
-          end
+for _, file in pairs(fs.readdirSync("./commands")) do
+    local fileInfo = require(string.gsub("./commands/"..file, ".lua", ""))
 
-          local commandString = string.lower(split_sar(message.content)[1])
-
-             if commandString == (fileInfo.usePrefix == true and ("$"..alias or alias)) then
-
-            if fileInfo.permissions then
-              for _, permission in pairs(fileInfo.permissions) do
-                if not message.member:hasPermission(client:getGuild("1052305529021665411"):getChannel("1058124374735073410"), discordia.enums.permission[permission])
-then
-                return
-              end
-            end
-          end
-            
-            pcall(fileInfo.callback(client, message, split_sar(message.content, " "), commandString))
-             end           
-          end
+    if fileInfo.command then
+        for _, alias in pairs(fileInfo.command) do
+            commands[alias] = fileInfo
         end
     end
-end)
+end
 
- 
---[[local timer
-local currentQuestion = nil
-local latestQuestion = nil
 client:on("messageCreate", function(message)
-math.randomseed(os.time())
+    if message.author.bot then return end
 
-    if message.member.bot then return end
-       if message.content == "$quiz" then
-        -- get a random question
-      if currentQuestion ~= nil then return message:newReply("no theres one already playing") end
-        repeat currentQuestion = quiz[math.random(#quiz)] until (currentQuestion.answer or nil) ~= latestQuestion
-        message:reply(currentQuestion.question)
-        -- start a timer for the question
-        timer = uv.new_timer()
-uv.timer_start(timer, 5500, 0, function()
-       if currentQuestion == nil then return end
-          coroutine.wrap(message.reply)(message, "time is up the answer was **" ..currentQuestion.answer.."**")
-                currentQuestion = nil
+    local commandString = string.lower(split_sar(message.content)[1])
+    local command = commands[commandString]
 
-            uv.timer_stop(timer)
-    end) 
-    elseif currentQuestion ~= nil and string.match(string.lower(message.content), currentQuestion.answer) and currentQuestion ~= nil then
-      latestQuestion = currentQuestion
-              currentQuestion = nil
-       message:reply(message.author.name .. " wins!!")
+    if command then
+        if command.usePrefix == true then
+            if string.sub(message.content, 0, 1) ~= "$" then return end
+        end
 
-        uv.timer_stop(timer)
+        if command.permissions then
+            for _, permission in pairs(command.permissions) do
+                if not message.member:hasPermission(client:getGuild("1052305529021665411"):getChannel("1058124374735073410"), discordia.enums.permission[permission]) then
+                    return
+                end
+            end
+        end
+
+        local success, err = pcall(function() command.callback(client, message, split_sar(string.lower(message.content), " "), commandString) end)
+
+       if not success then handleError(err) end
     end
-    
-    for _, word in pairs(motivationWords) do
-       if string.lower(message.content) == word then
-        local motivator = "um idk"
-        pcall(function()
-   local res, data = coro.request("GET", "https://www.affirmations.dev/")
-			local result = JSON.parse(data)    
-            motivator = result["affirmation"]
-          end)
 
-        message:newReply(string.lower(motivator))
+ --> FAQ
 
-
-         return
-      end
-    end
-    
-    if string.find(string.lower(message.content), "hey stuart") then
-      	local response = message:newReply("hold on..")
-	local answer = nil
-	
-	local usedURL = "https://api.wolframalpha.com/v2/query?appid="..os.getenv("wolfram-key").."&input="..encodeURI(string.lower(message.content):gsub("hey stuart ", "")).."&format=plaintext&output=JSON"
-		
-	coroutine.wrap(function()
-		pcall(function()
-			local res, data = coro.request("GET", usedURL)
-			local result = JSON.parse(data)
-              
-      answer = result["queryresult"]["pods"][2]["subpods"][1].plaintext
-            end)
-		
-		if answer == nil then
-			local clueless = {"i dont know", "clueless", "bro idk", "i dont get your question"}
-            response:setContent(clueless[math.random(1, #clueless)])
-			return nil
-		end
-
-		response:setContent(string.lower(answer or "i dont know"))
-  
-	end)()
-    end 
-
-
-    
-   for question, answer in pairs(faq) do
+  for question, answer in pairs(dataTable.faq) do
        if string.find(string.lower(message.content), question) then
         message:newReply(answer[math.random(1, #answer)])
 
@@ -138,11 +82,6 @@ uv.timer_start(timer, 5500, 0, function()
       end
     end
 
-    if math.random(1, 30) == 20 then
-       local oddStuff = {"shut up man", " i just busted", "god bro shut UP!!", "yo", "i love you :steamlove:", "happy Birthday .", " 182.17.212.188", "37.5630° N, 122.3255° W", "...", "i just pooped myself :(", "im outside .", "behind you .", "you.", "smash or pass aris (female)"}
-
-      message:newReply(oddStuff[math.random(1, #oddStuff)])
-end
-end)--]]
+end)
 
 client:run('Bot '.. os.getenv("token"))

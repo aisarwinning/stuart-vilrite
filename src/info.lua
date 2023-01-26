@@ -85,7 +85,7 @@ return {
 ["can i have specs"] = {"!ban", "say that shit again and im getting you terminated", "!kick", "no you cant", " prices for specs: 100$ for admin 200$ for jester no scam"},
   ["<@508540365599539202>"] = {"you ping him again and we have problem", "can you stop pinging him", "im at ur door step ."},
   ["i hate stuart"] = {"oh yeah well I hate you too!!", "everything I do and this how u pay me back" , "fuck you small bitch"},
-  ["sex"] = {"🤣🤣😂😂 get it?? he said sex!!" , "🤣🤣🤣🤣😂😂 sex!!", 'you are so unfunny "sex"'},
+  ["sex"] = {"bro shut up", "you think im a bot saying thid and my opinion doesn't matter but it does and you are ANNOYING."},
   ["i love stuart"] = {"https://media.discordapp.net/attachments/1052305529952817289/1066440373897019545/725792755502022777.png" , "https://media.discordapp.net/attachments/1052305529952817289/1066440373704085514/3194-steamhappy.png"};
   ['"you."'] = {"https://media.discordapp.net/attachments/1061049375914197102/1066769009128783933/Screenshot_1715-1.png", "https://media.discordapp.net/attachments/1061049375914197102/1066769008730312766/image-16.png", "https://media.discordapp.net/attachments/1064298390218883122/1066501536852738158/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1065028006051074118/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1065020821220888656/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1064318479672545280/image.png", "https://media.discordapp.net/attachments/1064298390218883122/1064310232249020416/image-3.png", ""}
 },
